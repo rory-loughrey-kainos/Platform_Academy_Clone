@@ -1,6 +1,6 @@
 ![](/1-Introduction/Images/Basics-of-Cloud-Security.png)
 
-# Introduction to Cloud Security
+**Cloud Security**
 
 In UK GDPR (General Data Protection Regulation).
 
@@ -8,45 +8,45 @@ Guidelines about Cloud Security UK National Cyber Security Centre.
 
 EU Commission on processing data.
 
-## Personal sensitive data
+**Personal sensitive data**
 
 Personal data is any piece of information that someone can use to identify, with some degree of accuracy, a living person.
 
 Sensitive personal data is a specific set of “special categories” that must be treated with extra security. This includes information pertaining to:
 
-- Racial or ethnic origin
-- Political opinions
-- Religious or philosophical beliefs
-- Trade union membership
-- Genetic data
-- Biometric data (where processed to uniquely identify someone)
+- Racial or ethnic origin;
+- Political opinions;
+- Religious or philosophical beliefs;
+- Trade union membership;
+- Genetic data; and
+- Biometric data (where processed to uniquely identify someone).
 
 Sensitive personal data should be held separately from other personal data, preferably in a locked drawer or filing cabinet. As with personal data generally, it should only be kept on laptops or portable devices if the file has been encrypted and/or pseudonymised.
 
-## How the data is accessed/stored
+**How the data is accessed/stored**
 
 For data in transit between your end user devices or systems and the service, consider the following options:
 
-- Use the remote access solution provided by the service (if available)
-- Build your own remote access solution using virtual security appliances
-- Deploy TLS as the primary data in transit protection for exposed interfaces from your service
-- Deploy TLS to complement the data in transit protections provided by the service
+- use the remote access solution provided by the service (if available)
+- build your own remote access solution using virtual security appliances
+- deploy TLS as the primary data in transit protection for exposed interfaces from your service
+- deploy TLS to complement the data in transit protections provided by the service
 
 Consider the following options to protect data in transit within the IaaS service:
 
-- Rely on the network separation offered by the service to protect data in transit within the service
-- Configure IPsec or TLS between compute instances
+- rely on the network separation offered by the service to protect data in transit within the service
+- configure IPsec or TLS between compute instances
 
-## Cloud shared security model
+**Cloud shared security model**
 
 NCSC have isolated three deployment models: public cloud, community cloud and private cloud deployments.
 
 And three service models: Infrastructure as a Service (IaaS), Platform as a Service (PaaS) and Software as a Service(SaaS).
 
-![](shared-reponsiblity-model.png)
+![](/1-Introduction/Images/shared-reponsiblity-model.png)
 
 
-## Managing access control
+**Managing access control**
 
 Management accounts should be assigned to individuals using the principle of ‘least privilege’. Role-based access control should be carried out where possible.
 
@@ -54,7 +54,7 @@ Strong authentication mechanisms (e.g. multi-factor authentication) should be us
 
 For a discussion of authentication options and risks, refer to the implementation section on Principle 10: Identity and authentication.
 
-## Monitor for security threats
+**Monitor for security threats**
 
 Good logging practices provides the ability to understand, trace and react to system and security events
 
