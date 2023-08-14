@@ -2,11 +2,9 @@
 
 ## Regions / Availability Zones
 
-<<<<<<< HEAD
 [Azure regions and availability zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview)(https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview)
-=======
+
 [Azure regions and availability zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview)
->>>>>>> bafd1cf (removed instructor files (moved to another repo) and moved files out of folder)
 
 1. How many Regions does Azure operate in?
 
@@ -14,7 +12,6 @@
 
 3. What is an Availability Zone?
 
-<<<<<<< HEAD
 4. What is an Availability Set and how is it different to an Availability Zone?
 
 ## Subscriptions, Resource groups, Management groups
@@ -55,7 +52,6 @@
 5. Open a new 'Private' tab in your browser, and log in to the Azure Portal using the email/password of your new user.
 
 6. Using the new user - Create another User in Active Directory with the same name (but with a '2' at the end)
-=======
 
 ## Subscriptions, Resource groups, Management groups
 
@@ -64,20 +60,16 @@
 2. What is a Resource Group?
 
 3. What is a Management Group?
->>>>>>> bafd1cf (removed instructor files (moved to another repo) and moved files out of folder)
 
 
 ## Azure pricing calculator
 
 [Azure pricing calculator](https://azure.microsoft.com/en-gb/pricing/calculator/)
 
-<<<<<<< HEAD
 ### Using the Azure Pricing calculator
-=======
 ### Exercise
 
 **Using the Azure Pricing calculator**
->>>>>>> bafd1cf (removed instructor files (moved to another repo) and moved files out of folder)
 
 In this exercise, you will create a price estimate with the Azure Pricing calculator; the estimate will be for a simple single-instance Windows VM hosted in the North Europe (Dublin) region.
 
@@ -102,11 +94,8 @@ In this exercise, you will create a price estimate with the Azure Pricing calcul
 5. Expand Managed Disks and adjust the default settings to the following for this exercise:
 
    * Tier: Premium SSD
-<<<<<<< HEAD
    * Disk Size: P15: 256 GiB
-=======
    * Disk Size: S15: 256 GiB
->>>>>>> bafd1cf (removed instructor files (moved to another repo) and moved files out of folder)
    * Disks (qty): 1
    * Leave Storage Transactions as is.
 
@@ -126,11 +115,10 @@ In this exercise, you will create a price estimate with the Azure Pricing calcul
 
 ### Questions
 
-<<<<<<< HEAD
 1. What is the lowest price a 'B1s' Virtual Machine could cost per hour in UK South running Ubuntu if you needed the machine for 1 year?
-=======
+
 1.  What is the lowest price a 'B1s' Virtual Machine could cost per hour in UK South running Ubuntu if you needed the machine for 1 year?
->>>>>>> bafd1cf (removed instructor files (moved to another repo) and moved files out of folder)
+
 
 2. For 'Compute' resources, What are the differences between: 'Pay as you go', 'Azure savings plan for compute', 'Reserved Instances' and 'Spot Instances'
 
@@ -145,7 +133,6 @@ In this exercise, you will create a price estimate with the Azure Pricing calcul
 
 3. You can log on to a VM using SSH from your local machine... But what is Azure Bastion and how does it work?
 
-<<<<<<< HEAD
 4. Using this guide [https://learn.microsoft.com/en-us/azure/bastion/quickstart-host-portal], configure Bastion and use it to ssh to your VM from last weeks Task 1 execercise.
 
 
@@ -169,7 +156,6 @@ In this exercise, you will create a price estimate with the Azure Pricing calcul
    - Encryption-services: blob
 
 Once you have completed the tutorial, clean up your resources.
-=======
 
 ## Storage
 
@@ -193,4 +179,3 @@ Once you have completed the tutorial, clean up your resources.
 5. Open a new 'Private' tab in your browser, and log in to the Azure Portal using the email/password of your new user.
 
 6. Using the new user - Create another User in Active Directory with the same name (but with a '2' at the end)
->>>>>>> bafd1cf (removed instructor files (moved to another repo) and moved files out of folder)
