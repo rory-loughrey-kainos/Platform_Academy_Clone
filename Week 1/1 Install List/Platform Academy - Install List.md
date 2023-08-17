@@ -52,9 +52,15 @@ Azure
 
 	brew install azure-cli
 
+### Pipx — Install and Run Python Applications
+
+	brew install pipx
+
+
 ### Kubernetes Command Line Tools
 
 	brew install kubectl
+	pipx ensurepath
 
 ### Docker
 
