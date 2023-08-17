@@ -11,6 +11,8 @@ provider "azurerm" {
   features {}
 }
 
+data "azurerm_client_config" "current" {}
+
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = "${var.root_name}rg"

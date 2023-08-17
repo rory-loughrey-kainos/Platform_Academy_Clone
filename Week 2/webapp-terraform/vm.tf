@@ -16,7 +16,7 @@ resource "azurerm_linux_virtual_machine" "sanity_vm" {
   location            = var.location
   size                = "Standard_B1ms"
   admin_username      = "adminuser"
-  admin_password = "Ubuntu123"
+  admin_password      = "Ubuntu123"
   network_interface_ids = [
     azurerm_network_interface.vm_nic.id,
   ]

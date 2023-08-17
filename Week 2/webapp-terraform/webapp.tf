@@ -7,10 +7,12 @@ resource "azurerm_linux_web_app" "webapp" {
   resource_group_name       = azurerm_resource_group.rg.name
   service_plan_id           = azurerm_service_plan.appserviceplan.id
   virtual_network_subnet_id = azurerm_subnet.webapp_subnet.id
+  https_only                = true
+
   site_config {
     minimum_tls_version = "1.2"
     application_stack {
-      node_version = "14-lts"
+      node_version = "18-lts"
     }
     vnet_route_all_enabled = true
   }
