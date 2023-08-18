@@ -7,6 +7,7 @@ resource "azurerm_key_vault" "vault" {
   tenant_id                  = var.tenant_id
   soft_delete_retention_days = 7
   purge_protection_enabled   = false
+  //enable_rbac_authorization  = true
   //random password 16 chars 
 
   access_policy {
@@ -37,6 +38,7 @@ resource "azurerm_key_vault" "vault" {
     default_action             = "Deny"
     bypass                     = "None"
     virtual_network_subnet_ids = [azurerm_subnet.keyvault_subnet.id]
+    //ip_rules = ["165.225.197.141"]
   }
 }
 

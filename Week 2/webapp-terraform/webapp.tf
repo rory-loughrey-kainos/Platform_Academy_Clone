@@ -2,13 +2,12 @@
 
 # Create the web app, pass in the App Service Plan ID
 resource "azurerm_linux_web_app" "webapp" {
-  name                      = "${var.root_name}webapp"
-  location                  = var.location
-  resource_group_name       = azurerm_resource_group.rg.name
-  service_plan_id           = azurerm_service_plan.appserviceplan.id
+  name                = "${var.root_name}webapp"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  service_plan_id     = azurerm_service_plan.app-service-plan.id
   virtual_network_subnet_id = azurerm_subnet.webapp_subnet.id
-  https_only                = true
-
+  https_only          = true
   site_config {
     minimum_tls_version = "1.2"
     application_stack {
@@ -30,10 +29,11 @@ resource "azurerm_app_service_source_control" "sourcecontrol" {
 ## App service plan
 
 # Create the Linux App Service Plan
-resource "azurerm_service_plan" "appserviceplan" {
+resource "azurerm_service_plan" "app-service-plan" {
   name                = "${var.root_name}app-service"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
-  os_type             = "Linux"
   sku_name            = "B1"
+  os_type             = "Linux"
 }
+
