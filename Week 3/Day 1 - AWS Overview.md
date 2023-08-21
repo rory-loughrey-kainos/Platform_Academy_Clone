@@ -16,9 +16,14 @@
 
 2. Excercise: Using the AWS CLI, find the following information:
     - List all regions in AWS
+    aws ec2 describe-regions --output table
     - List regions that are enabled on your AWS Account
+    aws ec2 describe-regions --filters "Name=opt-in-status, Values=opted-in, opt-in-not-required"
     - Get the display name of eu-west-1
+    aws lightsail get-regions --query "regions[?name=='eu-west-1'].displayName" --output text
     - List the Availibilty Zones in eu-west-1
+    aws ec2 describe-availability-zones --region "eu-west-1"
+
 
 ## AWS IAM
 
