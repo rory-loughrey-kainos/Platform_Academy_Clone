@@ -6,6 +6,8 @@
 
 1. How many Regions does AWS operate in?
 
+28 +
+
 2. Desribe the difference between the following:
     - AWS Region
     - AWS Availibility Zones
@@ -37,7 +39,6 @@
 # Compute
 
 ## AWS Elastic Compute Cloud (EC2)
->>>>>>> 54dd87a (Updates and additions to Getting started, Weeks 2 & 3)
 
 Intro to EC2
 [https://www.youtube.com/watch?v=TsRBftzZsQo]
