@@ -4,6 +4,7 @@ resource "aws_db_instance" "mysql" {
   identifier     = "db-instance-rory"
   engine         = "mysql"
   engine_version = "5.7"
+  db_subnet_group_name = aws_subnet.private_subnet.id
 
   instance_class = "db.t3.micro"
 

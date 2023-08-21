@@ -18,7 +18,7 @@ resource "aws_instance" "app_server" {
   //ecurity_groups             = [aws_security_group.seg_group.id]
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   key_name               = aws_key_pair.ssh_key.key_name
-
+  subnet_id              = aws_subnet.public_subnet.id
   root_block_device {
     delete_on_termination = true
     volume_size           = 8
