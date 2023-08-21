@@ -146,7 +146,6 @@ Follow the tutorial on docs.aws.amazon.com to stand up an LAMP Web Server that u
 # Serverless
 
 ## AWS Lambda
->>>>>>> 54dd87a (Updates and additions to Getting started, Weeks 2 & 3)
 
 1. What is AWS Lambda?
 
