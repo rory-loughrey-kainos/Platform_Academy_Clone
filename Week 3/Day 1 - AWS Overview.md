@@ -25,11 +25,16 @@
 [https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html](https://docs.aws.amazon.com/cli/latest/reference/iam/)
 
 1. What is IAM?
-
+    - Identiy access management - what it says on the tin
+    - defines users, access, and permissions
 2. How does IAM work?
-
+    - centrally managed auth/access controls
+    - ![image](https://github.com/rory-loughrey-kainos/Platform_Academy_Clone/assets/141819259/e02be4b9-ac99-4128-9af1-5cdc896af0ff)
 3. What are the four key concepts of IAM?
-
+    - resources - user, group, role, policy, and identity provider objects that IAM stores
+    - identities - identify & group resource objects
+    - entities - objects used to authenticate - users & roles
+    - principals - person or app that uses IAM to be federated onto AWS 
 4. Excercise: Using the CLI: 
     - Create a user account with a login password
     - Add it to the ReadOnlyEC2 User Group
@@ -47,11 +52,15 @@ Intro to EC2
 
 
 1. What is Amazon EC2?
-
+    - Essentially AWS VMs
 2. What are the high-level features of EC2?
-
+    - deploying pre-built or custom images to run compute workloads
+    - can attach services such as storage, as well as clustering VMs
 3. Describe the four different storage options availble to EC2 instances
-
+    - EBS - elastic block store (equiv of v-disks)
+    - S3 - general blco storage
+    - EFS - extended file service - useful for fileshares
+    - EC2 instance store - temp storage directly connected to instance (local on instance therefore volatile with instance)
 4. Excercise: Tutorial Amazon Linux 2023
     - Stand up Amazon Linux 2023 instance from getting started tutorial
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
@@ -59,29 +68,38 @@ Intro to EC2
 ## AWS Elastic Container Service (ECS)
 
 1. What is AWS ECS?
+   
+3. How many container platforms does ECS support?
 
-2. How many container platforms does ECS support?
-
-3. What advantages does running ECS with AWS Fargate give?
+4. What advantages does running ECS with AWS Fargate give?
 
 # Storage
 
 ## AWS Simple Storage Service (S3)
->>>>>>> 54dd87a (Updates and additions to Getting started, Weeks 2 & 3)
 
 1. What is AWS S3?
+   Simple blob storage - used for shared/ basic storage
 
 2. Describe the following S3 storage classes 
     - S3 Standard
-    - S3 Standard Infrequent Access 
+      - default, low latency
+    - S3 Standard Infrequent Access
+      - long lived, less frequent access 
     - S3 Standard Reduced Redundancy Storage
+      - non-crit data
     - S3 Intelligent-Tiering
+      - behind the scenes magic, moves data dynamically according to user defined rules
     - Glacier
+      - (now tiered) archival storage - payed retrieval
     - One Zone Infrequent Access
+      - infrequent access, stays in single zone (price or regulatory reasons)
 
 3. What are the two Lifecycle Management actions and how do they differ?
 
 4. What is a S3 Bucket Policy and find out two common uses for it
+   - IAM policy to allow/ deny principle permissions
+   - To enforce connection standards - e.g. TLS version
+   - To enforce encryption
 
 # Databases
 
