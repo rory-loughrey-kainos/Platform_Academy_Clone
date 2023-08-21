@@ -34,11 +34,6 @@
     - List the Group attached to your user
     - List the Policies attached to the ReadOnlyEC2 User Group
 
-<<<<<<< HEAD
-## Compute
-
-### AWS Elastic Compute Cloud (EC2)
-=======
 # Compute
 
 ## AWS Elastic Compute Cloud (EC2)
@@ -60,12 +55,7 @@ Intro to EC2
     - Stand up Amazon Linux 2023 instance from getting started tutorial
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
-
-<<<<<<< HEAD
-### AWS Elastic Container Service (ECS)
-=======
 ## AWS Elastic Container Service (ECS)
->>>>>>> 54dd87a (Updates and additions to Getting started, Weeks 2 & 3)
 
 1. What is AWS ECS?
 
@@ -73,11 +63,6 @@ Intro to EC2
 
 3. What advantages does running ECS with AWS Fargate give?
 
-<<<<<<< HEAD
-## Storage
-
-### AWS Simple Storage Service (S3)
-=======
 # Storage
 
 ## AWS Simple Storage Service (S3)
@@ -97,15 +82,9 @@ Intro to EC2
 
 4. What is a S3 Bucket Policy and find out two common uses for it
 
-<<<<<<< HEAD
-## Databases
-
-### AWS Relational Database Service (RDS) 
-=======
 # Databases
 
 ## AWS Relational Database Service (RDS) 
->>>>>>> 54dd87a (Updates and additions to Getting started, Weeks 2 & 3)
 
 [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html]
 
@@ -116,20 +95,12 @@ Intro to EC2
     - DB instance classes
     - DB instance storage
 
-<<<<<<< HEAD
-### Amazon DynamoDB (NoSQL)
-=======
 ## Amazon DynamoDB (NoSQL)
->>>>>>> 54dd87a (Updates and additions to Getting started, Weeks 2 & 3)
 
 1. What is DynamoDB and what is it used for?
 
 2. What are the advantages of using DynamoDB?
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 54dd87a (Updates and additions to Getting started, Weeks 2 & 3)
 ## Excercise: Create a Web server with a RDS DB Instance
 
 [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/TUT_WebAppWithRDS.html]
@@ -172,11 +143,6 @@ Follow the tutorial on docs.aws.amazon.com to stand up an LAMP Web Server that u
         - Initial database name: sample
         - Backup: false
 
-<<<<<<< HEAD
-## Serverless
-
-### AWS Lambda
-=======
 # Serverless
 
 ## AWS Lambda
