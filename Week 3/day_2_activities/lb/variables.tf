@@ -4,8 +4,6 @@ variable "root_name" {
   description = "forename for all deployed resources"
 }
 
-
-
 variable "db_password" {
   type        = string
   default     = "Password123"
@@ -27,7 +25,7 @@ variable "subnet_count" {
   description = "number of subnets to generate"
   type        = map(number)
   default = {
-    public  = 1,
+    public  = 1
     private = 2
   }
 }
@@ -71,4 +69,10 @@ variable "trusted_ips" {
     "147.161.142.0/23",
     "147.161.144.0/23"
   ]
+}
+
+variable "bucket_name" {
+  default = "alb-bucket-logs-rory-kainos"
+  type = string
+  description = "name of loggin bucket"
 }

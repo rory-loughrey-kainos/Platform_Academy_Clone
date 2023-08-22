@@ -1,8 +1,18 @@
 resource "aws_security_group" "ec2_sg" {
   name   = "ec2-sg"
   vpc_id = aws_vpc.vpc.id
+
   ingress {
-    cidr_blocks = ["0.0.0.0/0"]
+    //cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.trusted_ips
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+  }
+
+  ingress {
+    //cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.trusted_ips
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -32,6 +42,14 @@ resource "aws_security_group" "db_sg" {
 
   }
 
+  ingress {
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
+    security_groups = [aws_security_group.ec2_sg.id]
+
+  }
+
   tags = {
     name = "db-instance-rory-sg"
   }
@@ -39,6 +57,7 @@ resource "aws_security_group" "db_sg" {
 
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
+
 
   tags = {
     Name = "vpc-rory"
@@ -55,19 +74,37 @@ resource "aws_internet_gateway" "gateway" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  vpc_id     = aws_vpc.vpc.id
-  cidr_block = "10.0.1.0/24"
+  vpc_id = aws_vpc.vpc.id
+
+  count = var.subnet_count.public
+
+  cidr_block = var.public_subnet_cidr[count.index]
+
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
   tags = {
-    Name = "public-subnet-rory"
+    Name = "public-subnet-rory-${count.index}"
   }
 }
 
 resource "aws_subnet" "private_subnet" {
-  vpc_id     = aws_vpc.vpc.id
-  cidr_block = "10.0.2.0/24"
+  vpc_id = aws_vpc.vpc.id
+
+  count = var.subnet_count.private
+
+  cidr_block = var.private_subnet_cidr[count.index]
+
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
   tags = {
-    Name = "private-subnet-rory"
+    Name = "private-subnet-rory-${count.index}"
   }
+}
+resource "aws_route_table_association" "public_rt_asso" {
+  count          = var.subnet_count.public
+  subnet_id      = aws_subnet.public_subnet[count.index].id
+  route_table_id = aws_route_table.public_route_table.id
+
 }
 
 resource "aws_route_table" "public_route_table" {
@@ -77,23 +114,26 @@ resource "aws_route_table" "public_route_table" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.gateway.id
   }
-
   tags = {
-    Name = "public-rt-rory"
+    Name = "private-rt-rory"
   }
-
 }
-resource "aws_route_table_association" "public_rt_asso" {
-  subnet_id      = aws_subnet.public_subnet.id
+resource "aws_route_table_association" "private_rt_asso" {
+  count          = var.subnet_count.private
+  subnet_id      = aws_subnet.private_subnet[count.index].id
   route_table_id = aws_route_table.public_route_table.id
-
 }
 resource "aws_eip_association" "eip_assoc" {
-  instance_id   = aws_instance.app_server.id
-  allocation_id = aws_eip.eip.id
+  count         = 1
+  instance_id   = aws_instance.app_server[count.index].id
+  allocation_id = aws_eip.eip[count.index].id
 }
 resource "aws_eip" "eip" {
+  count    = 1
+  instance = aws_instance.app_server[count.index].id
+  vpc = true
 
+  depends_on = [ aws_internet_gateway.gateway ]
   tags = {
     Name = "rl_EC2_eip"
   }

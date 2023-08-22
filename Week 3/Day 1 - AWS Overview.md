@@ -42,9 +42,14 @@
     - principals - person or app that uses IAM to be federated onto AWS 
 4. Excercise: Using the CLI: 
     - Create a user account with a login password
+    aws create-user --user-name rory
+    aws create-login-profile --user-name rory --password Password123
     - Add it to the ReadOnlyEC2 User Group
+    aws iam add-user-to-group --user-name rory --group-name ReadOnlyEC2
     - List the Group attached to your user
+    aws iam list-groups-for-user --user-name rory
     - List the Policies attached to the ReadOnlyEC2 User Group
+    aws iam list-group-policies --group-name ReadOnlyEC2
 
 # Compute
 
@@ -113,18 +118,27 @@ Intro to EC2
 [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html]
 
 1. What is RDS?
-
+    Amazon relational (table based) db offering
 2. What is a RDS DB instance & Describe the following components of RDS DB instance:
     - DB engines
+    type of db ro run - microfodt sql, oracle etc
     - DB instance classes
+    determines compute & memory capacity of an instance
+    note: also divided in memory, compute or burst perfomance classes
     - DB instance storage
+    magnetic, ss, and provisioned iops ssd
 
 ## Amazon DynamoDB (NoSQL)
 
 1. What is DynamoDB and what is it used for?
-
+serverless, key based database solution
 2. What are the advantages of using DynamoDB?
-
+flexable schema
+serverless & scalable
+live replication out of the box
+simpler multi-key
+free tier available
+low latency & high aws integration
 ## Excercise: Create a Web server with a RDS DB Instance
 
 [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/TUT_WebAppWithRDS.html]
@@ -172,10 +186,16 @@ Follow the tutorial on docs.aws.amazon.com to stand up an LAMP Web Server that u
 ## AWS Lambda
 
 1. What is AWS Lambda?
-
+'serverless' compute - server(s) managed by amazon, only need to worry about the application and above
 2. Whats the advantages of Lambda over EC2?
-
+lesser admin in provisioning & maintaining servers (i.e. VMs), as well as (potential) cost savings as they are pay as you go compute
 3. Find out 5 different code languages that AWS Lambda supports natively 
+JS
+Python
+Java
+.NET
+Go
+Ruby
 
 4. Excerise: Using an Amazon S3 trigger to invoke a Lambda function. Take a look at the excerise below, but use Terraform to configure and provision resources
 [https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html]

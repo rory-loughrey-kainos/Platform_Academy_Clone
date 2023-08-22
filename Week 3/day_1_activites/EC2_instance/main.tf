@@ -9,16 +9,16 @@ terraform {
 
 provider "aws" {
   profile = "KPA-Belfast-23"
+  region = var.location
 }
-
 resource "aws_instance" "app_server" {
+  count                       = 1
   ami                         = "ami-0ed752ea0f62749af"
   instance_type               = "t2.micro"
   associate_public_ip_address = true
-  //ecurity_groups             = [aws_security_group.seg_group.id]
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   key_name               = aws_key_pair.ssh_key.key_name
-  subnet_id              = aws_subnet.public_subnet.id
+  subnet_id              = aws_subnet.public_subnet[count.index].id
   root_block_device {
     delete_on_termination = true
     volume_size           = 8
@@ -37,12 +37,19 @@ resource "aws_instance" "app_server" {
   #!/bin/bash
   sudo yum update
   echo "*** Installing mysql"
-  sudo dnf install mariadb105
+  sudo dnf install mariadb105 -y
   echo "*** Completed Installing mysql"
   EOF
+
+  depends_on = [ aws_internet_gateway.gateway ]
 
   tags = {
     Name = "lamp-server-rory"
   }
+}
+
+data "aws_availability_zones" "available" {
+  state = "available"
+
 }
 
