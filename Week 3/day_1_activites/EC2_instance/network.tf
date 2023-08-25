@@ -42,13 +42,6 @@ resource "aws_security_group" "db_sg" {
 
   }
 
-  ingress {
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
-    security_groups = [aws_security_group.ec2_sg.id]
-
-  }
 
   tags = {
     name = "db-instance-rory-sg"

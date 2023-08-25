@@ -19,30 +19,30 @@ resource "aws_iam_role" "alb_s3_role" {
 }
 
 data "aws_iam_policy_document" "inline_policy" {
- statement {
-    actions   = [
-        "logs:PutLogEvents",
-        "logs:CreateLogStream",
-        "logs:CreateLogGroup"
+  statement {
+    actions = [
+      "logs:PutLogEvents",
+      "logs:CreateLogStream",
+      "logs:CreateLogGroup"
     ]
     resources = ["arn:aws:logs:*:*:*"]
-    effect = "Allow"
+    effect    = "Allow"
   }
   statement {
     actions   = ["s3:PutObject"]
     resources = ["arn:aws:s3:::*/*"]
-    effect = "Allow"
+    effect    = "Allow"
   }
 }
 
 resource "aws_iam_policy" "alb_inline_policy" {
-  name = "lambda-s3-inline-policy-rory"
+  name   = "lambda-s3-inline-policy-rory"
   policy = data.aws_iam_policy_document.inline_policy.json
 }
 
 resource "aws_iam_policy_attachment" "alb_iam_attach" {
-  name = "policy-attachment-rory"
-  roles       = [aws_iam_role.alb_s3_role.name]
+  name       = "policy-attachment-rory"
+  roles      = [aws_iam_role.alb_s3_role.name]
   policy_arn = aws_iam_policy.alb_inline_policy.arn
 }
 

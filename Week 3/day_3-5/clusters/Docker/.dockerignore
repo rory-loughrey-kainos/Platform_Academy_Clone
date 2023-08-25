@@ -1,0 +1,9 @@
+# ./.dockerignore
+# Ignore all files when COPY is run
+*
+
+# Un-ignore these specific file so that they are
+# copied over when COPY is run
+!index.js
+!package-lock.json
+!package.json

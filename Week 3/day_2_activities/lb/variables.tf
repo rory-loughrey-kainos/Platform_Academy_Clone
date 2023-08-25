@@ -21,12 +21,14 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
-variable "subnet_count" {
+variable "counts" {
   description = "number of subnets to generate"
   type        = map(number)
   default = {
-    public  = 1
+    public  = 2
     private = 2
+    ec2     = 2
+    eip     = 1
   }
 }
 variable "public_subnet_cidr" {
@@ -72,7 +74,7 @@ variable "trusted_ips" {
 }
 
 variable "bucket_name" {
-  default = "alb-bucket-logs-rory-kainos"
-  type = string
+  default     = "alb-bucket-logs-rory-kainos"
+  type        = string
   description = "name of loggin bucket"
 }
