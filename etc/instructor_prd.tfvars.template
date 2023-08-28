@@ -1,0 +1,16 @@
+aws_account_id       = ""
+project              = "kpa23"
+aws_region           = "eu-west-1"
+environment          = "instructor-prd"
+internal_domain_name = "instructor-prd.local"
+
+vpc_cidr_block = 
+
+public_subnets = [
+
+]
+private_subnets = [
+
+]
+
+nat_gateway_count = 1
