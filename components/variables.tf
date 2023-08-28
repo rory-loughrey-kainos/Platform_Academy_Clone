@@ -33,3 +33,8 @@ variable "private_subnets" {
 variable "nat_gateway_count" {
   type = string
 }
+
+variable "root-name" {
+  type = string
+  default = "-KPA-23-rory"
+}

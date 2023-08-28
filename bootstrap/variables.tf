@@ -25,3 +25,8 @@ variable "aws_account_id" {
   type        = string
   description = "ID of the AWS Account"
 }
+
+variable "root-name" {
+  type = string
+  default = "-KPA-23-rory"
+}
