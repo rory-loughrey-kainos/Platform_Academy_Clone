@@ -1,0 +1,1 @@
+Place your tfvar files in this directory, make sure not to upload them to github by having your git ignore file configured
