@@ -6,7 +6,7 @@ variable "project" {
 variable "aws_region" {
   type        = string
   description = "The AWS Region into which we are bootstrapping."
-  default = "eu-west-1"
+  default     = "eu-west-1"
 }
 
 variable "environment" {
@@ -27,6 +27,6 @@ variable "aws_account_id" {
 }
 
 variable "root-name" {
-  type = string
-  default = "-KPA-23-rory"
+  type    = string
+  default = "-kpa-23-rory"
 }

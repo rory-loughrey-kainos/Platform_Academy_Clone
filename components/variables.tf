@@ -35,6 +35,24 @@ variable "nat_gateway_count" {
 }
 
 variable "root-name" {
-  type = string
+  type    = string
   default = "-KPA-23-rory"
+}
+
+variable "instance_count" {
+  type        = number
+  description = "nummber of ec2 instances to generate"
+  default     = 2
+}
+
+variable "instance_type" {
+  type        = string
+  description = "sku of machine to spin-up"
+  default     = "t3.micro"
+}
+
+variable "naming_prefix" {
+  type        = string
+  description = "prefix to identify deployed resources"
+  default     = "rory-"
 }

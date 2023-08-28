@@ -16,3 +16,4 @@ resource "aws_route53_zone" "private" {
     tomap({ "Name" = "${local.naming_prefix}-private-dns-zone" })
   )
 }
+

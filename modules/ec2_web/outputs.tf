@@ -1,17 +1,17 @@
 output "vpc_id" {
-  value = aws_vpc.vpc.id
+  value = var.vpc_id
 }
 
 output "vpc_cidr_block" {
   value = var.vpc_cidr_block
 }
-
+/*
 output "public_subnets_ids" {
-  value = aws_subnet.public.*.id
+  value = var.public_subnets.*.id
 }
 
 output "private_subnets_ids" {
-  value = aws_subnet.private.*.id
+  value = var.private_subnets.*.id
 }
 
 output "all_route_tables_ids" {
@@ -51,4 +51,17 @@ output "private_subnets_cidr" {
 
 output "public_subnets_cidr" {
   value = aws_subnet.public.*.cidr_block
+}
+*/
+
+output "alb_dns_name" {
+  value = aws_lb.alb.dns_name
+}
+
+output "alb_name" {
+  value = aws_lb.alb.name
+}
+
+output "alb_id" {
+  value = aws_lb.alb.dns_name
 }

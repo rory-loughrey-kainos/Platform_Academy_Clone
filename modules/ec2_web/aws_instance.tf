@@ -7,7 +7,7 @@ resource "aws_instance" "web_zone_a" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
 
-  subnet_id       = aws_subnet.private[count.index].id
+  subnet_id       = var.private_subnet_ids[count.index]
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
 
   user_data = <<-EOF
@@ -20,7 +20,7 @@ resource "aws_instance" "web_zone_a" {
   EOF
 
   tags = {
-    Name = "${var.naming_prefix}-webserver-zone-a-${count.index}"
+    Name = "${local.naming_prefix}-webserver-zone-a-${count.index}"
   }
 
   lifecycle {
@@ -28,3 +28,4 @@ resource "aws_instance" "web_zone_a" {
   }
 
 }
+
